@@ -1,13 +1,13 @@
 ﻿namespace UnifiedLearningSystem.Domain.DomainEvents
 {
-    public class LearningTaskTitleChanged : IDomainEvent
+    public record LearningTaskTitleChangedEvent : IDomainEvent
     {
         public DateTime CreationTime { get; init; }
         public string EventDescription { get; init; }
 
-        public LearningTaskTitleChanged()
+        public LearningTaskTitleChangedEvent(string newValue)
         {
-            EventDescription = "Learning task title changed";
+            EventDescription = $"Learning task title changed to {newValue}";
             CreationTime = DateTime.Now;
         }
     }

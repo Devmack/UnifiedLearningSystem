@@ -12,23 +12,28 @@ namespace UnifiedLearningSystem.Domain.Entities
             _taskTitle = taskTitle;
             _taskDescription = taskDescription;
 
-            AddEvent(new LearningTaskCreated());
+            AddEvent(new LearningTaskCreatedEvent(this));
         }
 
         public void ChangeTitle(TaskTitle newTitle)
         {
             _taskTitle = newTitle;
 
-            AddEvent(new LearningTaskTitleChanged());
+            AddEvent(new LearningTaskTitleChangedEvent(newTitle));
         }
 
         public void ChangeDescription(TaskDescription taskDescription)
         {
             _taskDescription = taskDescription;
 
-            AddEvent(new LearningTaskDescriptionChanged());
+            AddEvent(new LearningTaskDescriptionChangedEvent(taskDescription));
         }
 
-        
+        public override string ToString()
+        {
+            return $"Task: {_taskTitle}";
+        }
+
+
     }
 }
