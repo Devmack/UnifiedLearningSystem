@@ -4,11 +4,12 @@ namespace UnifiedLearningSystem.Domain.Repository
 {
     public interface ILessonRepository
     {
-        public Task<ICollection<LearningTask>> GetAll();
-        public Task<ICollection<LearningTask>> GetSubsetBasedOn(Func<LearningTask, bool> subsetPredicate);
-        public Task<LearningTask> GetSingle(Guid id);
-        public Task<bool> Add(LearningTask task);
-        public Task<bool> Delete(LearningTask task);
+        public Task<ICollection<LearningTask>> GetAllAsync();
+        public Task<ICollection<LearningTask>> GetSubsetBasedOnAsync(Func<LearningTask, bool> subsetPredicate);
+        public Task<LearningTask> GetSingleAsync(Guid id);
+        public Task<bool> AddAsync(LearningTask task);
+        public Task<bool> DeleteAsync(LearningTask task);
+        public Task<bool> UpdateAsync(LearningTask task);
 
     }
 }

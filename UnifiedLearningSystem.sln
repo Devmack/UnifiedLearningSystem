@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnifiedLearningSystem.Appli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnifiedLearningSystem.Domain", "UnifiedLearningSystem.Domain\UnifiedLearningSystem.Domain.csproj", "{618CCA63-8C48-4B5D-AE73-F8DE3CA7C4DA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnifiedLearningSystem.Shared", "UnifiedLearningSystem.Shared\UnifiedLearningSystem.Shared.csproj", "{F622B2B9-7679-49C7-A6FC-F5CAB249B97F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnifiedLearningSystem.CommonAbstraction", "UnifiedLearningSystem.Shared\UnifiedLearningSystem.CommonAbstraction.csproj", "{F622B2B9-7679-49C7-A6FC-F5CAB249B97F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnifiedLearningSystem.Infrastructure", "UnifiedLearningSystem.Infrastructure\UnifiedLearningSystem.Infrastructure.csproj", "{B0CAD51E-1C2A-496D-8F4A-265F4D7476F6}"
 EndProject
