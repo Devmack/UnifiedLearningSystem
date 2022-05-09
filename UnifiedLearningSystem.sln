@@ -3,15 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32002.185
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnifiedLearningSystem.API", "UnifiedLearningSystem.API\UnifiedLearningSystem.API.csproj", "{A9286E41-23C3-43C3-8124-63836CC161B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnifiedLearningSystem.API", "UnifiedLearningSystem.API\UnifiedLearningSystem.API.csproj", "{A9286E41-23C3-43C3-8124-63836CC161B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnifiedLearningSystem.Application", "UnifiedLearningSystem.Application\UnifiedLearningSystem.Application.csproj", "{3265AE9B-4653-44CA-8F84-8C6AB8C3F694}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnifiedLearningSystem.Application", "UnifiedLearningSystem.Application\UnifiedLearningSystem.Application.csproj", "{3265AE9B-4653-44CA-8F84-8C6AB8C3F694}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnifiedLearningSystem.Domain", "UnifiedLearningSystem.Domain\UnifiedLearningSystem.Domain.csproj", "{618CCA63-8C48-4B5D-AE73-F8DE3CA7C4DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnifiedLearningSystem.Domain", "UnifiedLearningSystem.Domain\UnifiedLearningSystem.Domain.csproj", "{618CCA63-8C48-4B5D-AE73-F8DE3CA7C4DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnifiedLearningSystem.Entities", "UnifiedLearningSystem.Entities\UnifiedLearningSystem.Entities.csproj", "{7375589E-8FC3-4BCE-BC64-D349CE5DC9E5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnifiedLearningSystem.Shared", "UnifiedLearningSystem.Shared\UnifiedLearningSystem.Shared.csproj", "{F622B2B9-7679-49C7-A6FC-F5CAB249B97F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnifiedLearningSystem.Shared", "UnifiedLearningSystem.Shared\UnifiedLearningSystem.Shared.csproj", "{F622B2B9-7679-49C7-A6FC-F5CAB249B97F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{618CCA63-8C48-4B5D-AE73-F8DE3CA7C4DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{618CCA63-8C48-4B5D-AE73-F8DE3CA7C4DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{618CCA63-8C48-4B5D-AE73-F8DE3CA7C4DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7375589E-8FC3-4BCE-BC64-D349CE5DC9E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7375589E-8FC3-4BCE-BC64-D349CE5DC9E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7375589E-8FC3-4BCE-BC64-D349CE5DC9E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7375589E-8FC3-4BCE-BC64-D349CE5DC9E5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F622B2B9-7679-49C7-A6FC-F5CAB249B97F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F622B2B9-7679-49C7-A6FC-F5CAB249B97F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F622B2B9-7679-49C7-A6FC-F5CAB249B97F}.Release|Any CPU.ActiveCfg = Release|Any CPU
