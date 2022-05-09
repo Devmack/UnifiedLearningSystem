@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnifiedLearningSystem.Domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnifiedLearningSystem.Shared", "UnifiedLearningSystem.Shared\UnifiedLearningSystem.Shared.csproj", "{F622B2B9-7679-49C7-A6FC-F5CAB249B97F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnifiedLearningSystem.Infrastructure", "UnifiedLearningSystem.Infrastructure\UnifiedLearningSystem.Infrastructure.csproj", "{B0CAD51E-1C2A-496D-8F4A-265F4D7476F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F622B2B9-7679-49C7-A6FC-F5CAB249B97F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F622B2B9-7679-49C7-A6FC-F5CAB249B97F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F622B2B9-7679-49C7-A6FC-F5CAB249B97F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0CAD51E-1C2A-496D-8F4A-265F4D7476F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0CAD51E-1C2A-496D-8F4A-265F4D7476F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0CAD51E-1C2A-496D-8F4A-265F4D7476F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0CAD51E-1C2A-496D-8F4A-265F4D7476F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
