@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DomainEvents\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\UnifiedLearningSystem.Shared\UnifiedLearningSystem.Shared.csproj" />
   </ItemGroup>
 
