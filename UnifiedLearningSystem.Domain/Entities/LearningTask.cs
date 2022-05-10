@@ -7,6 +7,10 @@ namespace UnifiedLearningSystem.Domain.Entities
         private TaskTitle _taskTitle;
         private TaskDescription _taskDescription;
 
+        public LearningTask()
+        {
+
+        }
         public LearningTask(TaskTitle taskTitle, TaskDescription taskDescription)
         {
             _taskTitle = taskTitle;

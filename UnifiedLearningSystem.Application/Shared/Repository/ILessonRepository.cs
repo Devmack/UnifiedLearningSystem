@@ -1,6 +1,6 @@
 ﻿using UnifiedLearningSystem.Domain.Entities;
 
-namespace UnifiedLearningSystem.Domain.Repository
+namespace UnifiedLearningSystem.Application.Shared.Repository
 {
     public interface ILessonRepository
     {

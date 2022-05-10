@@ -11,7 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnifiedLearningSystem.Domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnifiedLearningSystem.CommonAbstraction", "UnifiedLearningSystem.Shared\UnifiedLearningSystem.CommonAbstraction.csproj", "{F622B2B9-7679-49C7-A6FC-F5CAB249B97F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnifiedLearningSystem.Infrastructure", "UnifiedLearningSystem.Infrastructure\UnifiedLearningSystem.Infrastructure.csproj", "{B0CAD51E-1C2A-496D-8F4A-265F4D7476F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnifiedLearningSystem.Infrastructure", "UnifiedLearningSystem.Infrastructure\UnifiedLearningSystem.Infrastructure.csproj", "{B0CAD51E-1C2A-496D-8F4A-265F4D7476F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E2C69255-D107-46AB-99DC-010199DC39AC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2DE84345-4433-4548-9612-6ABD07D0E053}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnifiedLearningSystem.DomainTests", "UnifiedLearningSystem.DomainTests\UnifiedLearningSystem.DomainTests.csproj", "{99979F89-A791-4DE0-9E61-82A4CD761A45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +45,21 @@ Global
 		{B0CAD51E-1C2A-496D-8F4A-265F4D7476F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0CAD51E-1C2A-496D-8F4A-265F4D7476F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0CAD51E-1C2A-496D-8F4A-265F4D7476F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99979F89-A791-4DE0-9E61-82A4CD761A45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99979F89-A791-4DE0-9E61-82A4CD761A45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99979F89-A791-4DE0-9E61-82A4CD761A45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99979F89-A791-4DE0-9E61-82A4CD761A45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A9286E41-23C3-43C3-8124-63836CC161B7} = {E2C69255-D107-46AB-99DC-010199DC39AC}
+		{3265AE9B-4653-44CA-8F84-8C6AB8C3F694} = {E2C69255-D107-46AB-99DC-010199DC39AC}
+		{618CCA63-8C48-4B5D-AE73-F8DE3CA7C4DA} = {E2C69255-D107-46AB-99DC-010199DC39AC}
+		{F622B2B9-7679-49C7-A6FC-F5CAB249B97F} = {E2C69255-D107-46AB-99DC-010199DC39AC}
+		{B0CAD51E-1C2A-496D-8F4A-265F4D7476F6} = {E2C69255-D107-46AB-99DC-010199DC39AC}
+		{99979F89-A791-4DE0-9E61-82A4CD761A45} = {2DE84345-4433-4548-9612-6ABD07D0E053}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {00F6B7BF-3F93-414A-98B2-158F67585B8F}
