@@ -1,6 +1,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using UnifiedLearningSystem.Application.DTOs.LearningTask;
+using UnifiedLearningSystem.Application.Mappers;
 using UnifiedLearningSystem.Domain.Entities;
 
 namespace UnifiedLearningSystem.API.Controllers
@@ -15,9 +16,9 @@ namespace UnifiedLearningSystem.API.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly IMapper mapper;
+        private readonly ILearningCoreMapper<LearningTask, LearningTaskCreateDTO> mapper;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IMapper mapper)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, ILearningCoreMapper<LearningTask, LearningTaskCreateDTO> mapper)
         {
             _logger = logger;
             this.mapper = mapper;
@@ -27,7 +28,7 @@ namespace UnifiedLearningSystem.API.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
             var newLessonTask = new LearningTaskCreateDTO("test", "test");
-            LearningTask t = mapper.Map<LearningTask>(newLessonTask);
+            LearningTask t = mapper.ConvertFrom(newLessonTask);
             Console.WriteLine(t);
 
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

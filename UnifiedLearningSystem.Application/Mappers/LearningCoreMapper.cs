@@ -1,14 +1,15 @@
 ﻿using AutoMapper;
 using UnifiedLearningSystem.Application.DTOs.LearningTask;
 using UnifiedLearningSystem.Domain.Entities;
+using UnifiedLearningSystem.Domain.Factories;
 
 namespace UnifiedLearningSystem.Application.Mappers
 {
-    public class LearningCoreMapper : Profile
+    public class LearningCoreMapper : ILearningCoreMapper<LearningTask, LearningTaskCreateDTO>
     {
-        public LearningCoreMapper()
+        public LearningTask ConvertFrom(LearningTaskCreateDTO createDTO)
         {
-            CreateMap<LearningTask, LearningTaskCreateDTO>().ReverseMap();
+            return LearningTaskFactory.Build(createDTO._taskTitle, createDTO._taskDescription);
         }
     }
 }

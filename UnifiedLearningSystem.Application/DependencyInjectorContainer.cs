@@ -1,6 +1,9 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+using UnifiedLearningSystem.Application.DTOs.LearningTask;
+using UnifiedLearningSystem.Application.Mappers;
+using UnifiedLearningSystem.Domain.Entities;
 
 namespace UnifiedLearningSystem.Application
 {
@@ -9,7 +12,7 @@ namespace UnifiedLearningSystem.Application
         public static void InjectApplicationLayer(this IServiceCollection services)
         {
             services.AddMediatR(Assembly.GetExecutingAssembly());
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<ILearningCoreMapper<LearningTask, LearningTaskCreateDTO>, LearningCoreMapper>();
         }
     }
 }
