@@ -2,7 +2,7 @@
 
 namespace UnifiedLearningSystem.Application.Shared.Repository
 {
-    public interface ILessonRepository
+    public interface ILearningTaskRepository
     {
         public Task<ICollection<LearningTask>> GetAllAsync();
         public Task<ICollection<LearningTask>> GetSubsetBasedOnAsync(Func<LearningTask, bool> subsetPredicate);

@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="CQRS\Lessons\" />
-    <Folder Include="CQRS\LearningTasks\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Validation\" />
   </ItemGroup>

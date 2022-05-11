@@ -13,6 +13,7 @@ namespace UnifiedLearningSystem.Application
         {
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddScoped<ILearningCoreMapper<LearningTask, LearningTaskCreateDTO>, LearningCoreMapper>();
+            services.AddScoped<ILearningCoreMapper<LearningTask, LearningTaskReadDTO>, LearningCoreReadMapper>();
         }
     }
 }

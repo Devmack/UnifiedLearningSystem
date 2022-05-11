@@ -4,8 +4,8 @@ namespace UnifiedLearningSystem.Domain.Entities
 {
     public class LearningTask : AggregateRoot
     {
-        private TaskTitle _taskTitle;
-        private TaskDescription _taskDescription;
+        public TaskTitle TaskTitle { get; private set; }
+        public TaskDescription TaskDescription { get; private set; }
 
         public LearningTask()
         {
@@ -13,29 +13,29 @@ namespace UnifiedLearningSystem.Domain.Entities
         }
         public LearningTask(TaskTitle taskTitle, TaskDescription taskDescription)
         {
-            _taskTitle = taskTitle;
-            _taskDescription = taskDescription;
+            TaskTitle = taskTitle;
+            TaskDescription = taskDescription;
 
             AddEvent(new LearningTaskCreatedEvent(this));
         }
 
         public void ChangeTitle(TaskTitle newTitle)
         {
-            _taskTitle = newTitle;
+            TaskTitle = newTitle;
 
             AddEvent(new LearningTaskTitleChangedEvent(newTitle));
         }
 
         public void ChangeDescription(TaskDescription taskDescription)
         {
-            _taskDescription = taskDescription;
+            TaskDescription = taskDescription;
 
             AddEvent(new LearningTaskDescriptionChangedEvent(taskDescription));
         }
 
         public override string ToString()
         {
-            return $"Task: {_taskTitle}";
+            return $"Task: {TaskTitle}";
         }
 
 
