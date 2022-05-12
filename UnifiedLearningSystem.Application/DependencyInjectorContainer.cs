@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using UnifiedLearningSystem.Application.DTOs.LearningTask;
@@ -12,6 +13,7 @@ namespace UnifiedLearningSystem.Application
         public static void InjectApplicationLayer(this IServiceCollection services)
         {
             services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddScoped<ILearningCoreMapper<LearningTask, LearningTaskCreateDTO>, LearningCoreMapper>();
             services.AddScoped<ILearningCoreMapper<LearningTask, LearningTaskReadDTO>, LearningCoreReadMapper>();
         }
