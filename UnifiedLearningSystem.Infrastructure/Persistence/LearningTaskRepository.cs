@@ -3,14 +3,21 @@ using UnifiedLearningSystem.Domain.Entities;
 
 namespace UnifiedLearningSystem.Infrastructure.Persistence
 {
-    internal class LearningTaskRepository : ILearningTaskRepository
+    public class LearningTaskRepository : ILearningTaskRepository
     {
-        public Task<bool> AddAsync(LearningTask task)
+        private readonly UnifiedLearningSystemContext context;
+
+        public LearningTaskRepository(UnifiedLearningSystemContext context)
         {
-            throw new NotImplementedException();
+            this.context = context;
         }
 
-        public Task<bool> DeleteAsync(LearningTask task)
+        public async Task AddAsync(LearningTask task)
+        {
+            await context.LearningTasks.AddAsync(task);
+        }
+
+        public Task DeleteAsync(LearningTask task)
         {
             throw new NotImplementedException();
         }
@@ -30,7 +37,7 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateAsync(LearningTask task)
+        public Task UpdateAsync(LearningTask task)
         {
             throw new NotImplementedException();
         }

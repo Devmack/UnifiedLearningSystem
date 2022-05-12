@@ -4,6 +4,11 @@
     {
         public string Value { get; private set; }
 
+        public TaskDescription()
+        {
+
+        }
+
         public TaskDescription(string value)
         {
             if (String.IsNullOrEmpty(value))

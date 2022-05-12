@@ -4,6 +4,11 @@
     {
         public string Value { get; }
 
+        public TaskTitle()
+        {
+
+        }
+
         public TaskTitle(string value)
         {   
             if (string.IsNullOrWhiteSpace(value))

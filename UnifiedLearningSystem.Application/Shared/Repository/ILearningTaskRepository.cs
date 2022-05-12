@@ -7,9 +7,9 @@ namespace UnifiedLearningSystem.Application.Shared.Repository
         public Task<ICollection<LearningTask>> GetAllAsync();
         public Task<ICollection<LearningTask>> GetSubsetBasedOnAsync(Func<LearningTask, bool> subsetPredicate);
         public Task<LearningTask> GetSingleAsync(Guid id);
-        public Task<bool> AddAsync(LearningTask task);
-        public Task<bool> DeleteAsync(LearningTask task);
-        public Task<bool> UpdateAsync(LearningTask task);
+        public Task AddAsync(LearningTask task);
+        public Task DeleteAsync(LearningTask task);
+        public Task UpdateAsync(LearningTask task);
 
     }
 }

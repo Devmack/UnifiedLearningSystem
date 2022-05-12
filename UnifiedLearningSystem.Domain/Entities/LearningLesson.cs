@@ -8,6 +8,11 @@ namespace UnifiedLearningSystem.Domain.Entities
         public LessonTitle Title { get; private set; }
         public ICollection<LearningTask> Tasks { get; private set; }
 
+        public LearningLesson()
+        {
+
+        }
+
         public LearningLesson(LessonTitle title, ICollection<LearningTask> tasks)
         {
             Title = title;

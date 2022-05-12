@@ -4,6 +4,11 @@
     {
         public string Value { get; private set; }
 
+        public LessonTitle()
+        {
+
+        }
+
         public LessonTitle(string value)
         {
             if (String.IsNullOrEmpty(value))
