@@ -2,7 +2,7 @@
 
 namespace UnifiedLearningSystem.Application.DTOs.LearningTask
 {
-    public record LearningTaskReadDTO(TaskTitle _taskTitle, TaskDescription _taskDescription);
+    public record LearningTaskReadDTO(string _taskTitle, string _taskDescription);
 
 
 }
