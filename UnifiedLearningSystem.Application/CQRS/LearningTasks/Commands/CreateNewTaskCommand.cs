@@ -28,7 +28,9 @@ namespace UnifiedLearningSystem.Application.CQRS.LearningTasks.Commands
             var newTask = new LearningTaskCreateDTO(request.Title, request.Description);
             var mapped = learningCoreMapper.ConvertFrom(newTask);
 
+
             await learningTaskRepository.AddAsync(mapped);
+
             return true;
         }
 

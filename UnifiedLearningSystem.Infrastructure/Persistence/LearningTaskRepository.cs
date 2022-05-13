@@ -1,4 +1,5 @@
-﻿using UnifiedLearningSystem.Application.Shared.Repository;
+﻿using Microsoft.EntityFrameworkCore;
+using UnifiedLearningSystem.Application.Shared.Repository;
 using UnifiedLearningSystem.Domain.Entities;
 
 namespace UnifiedLearningSystem.Infrastructure.Persistence
@@ -15,6 +16,7 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
         public async Task AddAsync(LearningTask task)
         {
             await context.LearningTasks.AddAsync(task);
+            await context.SaveChangesAsync();   
         }
 
         public Task DeleteAsync(LearningTask task)
@@ -22,9 +24,9 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
             throw new NotImplementedException();
         }
 
-        public Task<ICollection<LearningTask>> GetAllAsync()
+        public async Task<ICollection<LearningTask>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await context.LearningTasks.ToListAsync();
         }
 
         public Task<LearningTask> GetSingleAsync(Guid id)
@@ -41,5 +43,7 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
         {
             throw new NotImplementedException();
         }
+
+
     }
 }

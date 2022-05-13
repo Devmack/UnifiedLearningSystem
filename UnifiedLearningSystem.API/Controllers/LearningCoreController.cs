@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using UnifiedLearningSystem.Application.CQRS.LearningTasks;
+using UnifiedLearningSystem.Application.CQRS.LearningTasks.Commands;
 using UnifiedLearningSystem.Application.DTOs.LearningTask;
 
 namespace UnifiedLearningSystem.API.Controllers
@@ -21,6 +22,13 @@ namespace UnifiedLearningSystem.API.Controllers
         public async Task<ActionResult<List<LearningTaskReadDTO>>> GetAllTasks()
         {
             return Ok(await mediatR.Send(new GetAllLearningTaskQuery()));
+        }
+
+        [HttpPost]
+        [Route("task")]
+        public async Task<ActionResult> CreateNewTask(CreateNewTaskCommand newTaskCommand)
+        {
+            return Ok(await mediatR.Send(newTaskCommand));
         }
     }
 }

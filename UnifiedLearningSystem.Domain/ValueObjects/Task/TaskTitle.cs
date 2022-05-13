@@ -2,7 +2,7 @@
 {
     public record TaskTitle
     {
-        public string Value { get; }
+        public string Value { get; private set; }
 
         public TaskTitle()
         {
