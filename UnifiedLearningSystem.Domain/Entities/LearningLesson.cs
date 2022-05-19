@@ -13,7 +13,7 @@ namespace UnifiedLearningSystem.Domain.Entities
 
         }
 
-        public LearningLesson(LessonTitle title, ICollection<LearningTask> tasks)
+        internal LearningLesson(LessonTitle title, ICollection<LearningTask> tasks)
         {
             Title = title;
             Tasks = tasks;

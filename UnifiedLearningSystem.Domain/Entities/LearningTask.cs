@@ -11,7 +11,7 @@ namespace UnifiedLearningSystem.Domain.Entities
         {
 
         }
-        public LearningTask(TaskTitle taskTitle, TaskDescription taskDescription)
+        internal LearningTask(TaskTitle taskTitle, TaskDescription taskDescription)
         {
             TaskTitle = taskTitle;
             TaskDescription = taskDescription;
