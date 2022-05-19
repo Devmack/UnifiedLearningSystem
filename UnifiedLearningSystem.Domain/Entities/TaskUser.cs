@@ -5,10 +5,10 @@ namespace UnifiedLearningSystem.Domain.Entities
 {
     public class TaskUser : AggregateRoot
     {
-        public Guid TaskOwnerUserID { get; set; }
-        public Guid TaskID { get; set; }
-        public TaskRepositoriumLink RepositoriumLink { get; set; }
-        public List<TaskReview> TaskUserReviews { get; set; }
+        public Guid TaskOwnerUserID { get; private set; }
+        public Guid TaskID { get; private set; }
+        public TaskRepositoriumLink RepositoriumLink { get; private set; }
+        public List<TaskReview> TaskUserReviews { get; private set; }
 
         public TaskUser(Guid taskOwnerUserID, Guid taskID, TaskRepositoriumLink repositoriumLink, List<TaskReview> taskUserReviews)
         {
