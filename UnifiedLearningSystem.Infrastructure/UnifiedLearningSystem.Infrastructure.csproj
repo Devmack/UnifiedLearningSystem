@@ -23,4 +23,8 @@
     <ProjectReference Include="..\UnifiedLearningSystem.Application\UnifiedLearningSystem.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Identity\" />
+  </ItemGroup>
+
 </Project>
