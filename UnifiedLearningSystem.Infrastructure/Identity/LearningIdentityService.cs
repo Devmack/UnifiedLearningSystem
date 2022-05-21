@@ -20,14 +20,27 @@ namespace UnifiedLearningSystem.Infrastructure.Identity
             return await _userManager.FindByIdAsync(id.ToString());
         }
 
-        public Task<bool> LoginAsync(CredentialsContainerDTO credentials)
+        public async Task<bool> LoginAsync(CredentialsContainerDTO credentials)
         {
-            throw new NotImplementedException();
+            var user = await _userManager.FindByNameAsync(credentials.login);
+            var signInResult = await _signInManager.PasswordSignInAsync(user, credentials.password, false, false);
+
+            return signInResult.Succeeded;
         }
 
-        public Task<bool> RegisterAsync(CredentialsContainerDTO credentials)
+        public async Task<bool> RegisterAsync(CredentialsContainerDTO credentials)
         {
-            throw new NotImplementedException();
+            var newUser = new IdentityUser<Guid>()
+            {
+                UserName = credentials.login
+            };
+            var isUserCreated = await _userManager.CreateAsync(newUser);
+
+            if (!isUserCreated.Succeeded) return false;
+            
+            var registerAction = await _userManager.AddPasswordAsync(newUser, credentials.password);
+
+            return registerAction.Succeeded;
         }
     }
 }
