@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.AspNetCore.Identity;
 using UnifiedLearningSystem.Application.DTOs.Identity;
 
 namespace UnifiedLearningSystem.Application.Shared.Identity
@@ -7,6 +7,6 @@ namespace UnifiedLearningSystem.Application.Shared.Identity
     {
         public Task<bool> LoginAsync(CredentialsContainerDTO credentials);
         public Task<bool> RegisterAsync(CredentialsContainerDTO credentials);
-        public Task<IdentityUser> GetUserAsync(Guid id);
+        public Task<IdentityUser<Guid>> GetUserAsync(Guid id);
     }
 }
