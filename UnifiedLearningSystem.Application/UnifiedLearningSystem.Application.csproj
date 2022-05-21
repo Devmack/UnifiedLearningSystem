@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="CQRS\Identity\Queries\" />
     <Folder Include="CQRS\Lessons\" />
     <Folder Include="Exceptions\" />
   </ItemGroup>
