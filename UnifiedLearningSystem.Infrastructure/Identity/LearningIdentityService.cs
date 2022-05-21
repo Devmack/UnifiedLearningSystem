@@ -6,9 +6,18 @@ namespace UnifiedLearningSystem.Infrastructure.Identity
 {
     public class LearningIdentityService : IIdentityService
     {
-        public Task<IdentityUser<Guid>> GetUserAsync(Guid id)
+        private readonly UserManager<IdentityUser<Guid>> _userManager;
+        private readonly SignInManager<IdentityUser<Guid>> _signInManager;
+
+        public LearningIdentityService(UserManager<IdentityUser<Guid>> userManager, SignInManager<IdentityUser<Guid>> signInManager)
         {
-            throw new NotImplementedException();
+            _userManager = userManager;
+            _signInManager = signInManager;
+        }
+
+        public async Task<IdentityUser<Guid>> GetUserAsync(Guid id)
+        {
+            return await _userManager.FindByIdAsync(id.ToString());
         }
 
         public Task<bool> LoginAsync(CredentialsContainerDTO credentials)
