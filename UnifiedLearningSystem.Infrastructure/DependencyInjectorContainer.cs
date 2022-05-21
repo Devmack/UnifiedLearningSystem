@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using UnifiedLearningSystem.Application.Shared.Repository;
@@ -15,6 +16,10 @@ namespace UnifiedLearningSystem.Infrastructure
 
             services.AddDbContext<ApplicationUserContext>(options =>
                 options.UseSqlServer(config["ApplicationDatabases:Identity"]));
+
+            services.AddIdentityCore<IdentityUser<Guid>>(options =>
+                                       options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<ApplicationUserContext>();
 
             services.AddTransient<ILearningTaskRepository, LearningTaskRepository>();
         }

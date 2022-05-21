@@ -9,7 +9,7 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
         public DbSet<LearningLesson> Lessons { get; set; }
         public DbSet<LearningTask> LearningTasks { get; set; }
 
-        public UnifiedLearningSystemContext(DbContextOptions options) : base(options) {}
+        public UnifiedLearningSystemContext(DbContextOptions<UnifiedLearningSystemContext> options) : base(options) {}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
