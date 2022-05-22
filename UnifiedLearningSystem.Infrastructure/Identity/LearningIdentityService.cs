@@ -20,12 +20,16 @@ namespace UnifiedLearningSystem.Infrastructure.Identity
             return await _userManager.FindByIdAsync(id.ToString());
         }
 
-        public async Task<bool> LoginAsync(CredentialsContainerDTO credentials)
+        public async Task<IdentityUser<Guid>> LoginAsync(CredentialsContainerDTO credentials)
         {
             var user = await _userManager.FindByNameAsync(credentials.login);
-            var signInResult = await _signInManager.PasswordSignInAsync(user, credentials.password, false, false);
+            var signInResult = await _signInManager.CheckPasswordSignInAsync(user, credentials.password, false);
 
-            return signInResult.Succeeded;
+            if (signInResult.Succeeded)
+            {
+                return user;
+            }
+            return null;
         }
 
         public async Task<bool> RegisterAsync(CredentialsContainerDTO credentials)

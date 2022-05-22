@@ -28,6 +28,7 @@ namespace UnifiedLearningSystem.Infrastructure
 
             var builder = services.AddIdentityCore<IdentityUser<Guid>>(options =>
                                        options.SignIn.RequireConfirmedAccount = false)
+                .AddRoles<IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<ApplicationUserContext>();
 
             services.AddAuthentication(options =>
@@ -79,7 +80,6 @@ namespace UnifiedLearningSystem.Infrastructure
             });
 
             builder = new IdentityBuilder(builder.UserType, builder.Services);
-
             builder.AddSignInManager<SignInManager<IdentityUser<Guid>>>();
 
             services.AddTransient<ILearningTaskRepository, LearningTaskRepository>();

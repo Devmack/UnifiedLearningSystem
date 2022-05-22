@@ -23,5 +23,12 @@ namespace UnifiedLearningSystem.API.Controllers
         {
             return Ok(await mediatR.Send(new RegisterUserCommand(credentials)));
         }
+
+        [HttpPost]
+        [Route("login")]
+        public async Task<ActionResult> Login(CredentialsContainerDTO credentials)
+        {
+            return Ok(await mediatR.Send(new LoginUserCommand(credentials)));
+        }
     }
 }

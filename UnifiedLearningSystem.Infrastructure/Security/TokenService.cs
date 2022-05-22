@@ -32,17 +32,20 @@ namespace UnifiedLearningSystem.Infrastructure.Security
                 {
                     roleClaims.Add(new Claim(ClaimTypes.Role, roles[i]));
                 }
+            } else
+            {
+                roles = new List<string>();
             }
 
-            var claims = new[]
-            {
-            new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim(JwtRegisteredClaimNames.Email, user.Email),
-            new Claim(ClaimTypes.Role,"adminEdu")
-        }
-        .Union(usrClaims)
-        .Union(roleClaims);
+        //    var claims = new[]
+        //    {
+        //    new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+        //    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+        //    new Claim(JwtRegisteredClaimNames.Email, user.Email),
+        //    new Claim(ClaimTypes.Role,"adminEdu")
+        //};
+        //Union(usrClaims);
+        ///.Union(roleClaims);
 
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Token:Key"]));
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
@@ -50,12 +53,12 @@ namespace UnifiedLearningSystem.Infrastructure.Security
             var jwtSecurityToken = new JwtSecurityToken(
                 issuer: config["Token:Issuer"],
                 audience: config["Token:Audience"],
-                claims: claims,
+                claims: new[] { new Claim(JwtRegisteredClaimNames.Sub, user.UserName) },
                 expires: DateTime.UtcNow.AddMinutes(5),
                 signingCredentials: signingCredentials);
 
-
-            return jwtSecurityToken.ToString();
+            var stringifiedToken = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+            return stringifiedToken;
         }
 
         public Task<bool> ValidateTokenAsync(string token)
