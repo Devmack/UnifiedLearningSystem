@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using UnifiedLearningSystem.Application.DTOs.LearningTask;
+using UnifiedLearningSystem.Application.DTOs.TaskUser;
 using UnifiedLearningSystem.Application.Mappers;
 using UnifiedLearningSystem.Domain.Entities;
 
@@ -14,8 +15,11 @@ namespace UnifiedLearningSystem.Application
         {
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
             services.AddScoped<ILearningCoreMapper<LearningTask, LearningTaskCreateDTO>, LearningCoreMapper>();
             services.AddScoped<ILearningCoreMapper<LearningTask, LearningTaskReadDTO>, LearningCoreReadMapper>();
+            services.AddScoped<ILearningCoreMapper<TaskUserReadDTO, TaskUser>, LearningOwnerMapper>();
+            services.AddScoped<ILearningCoreMapper<TaskUserCreateDTO, TaskUser>, LearningOwnerCreateMapper>();
         }
     }
 }

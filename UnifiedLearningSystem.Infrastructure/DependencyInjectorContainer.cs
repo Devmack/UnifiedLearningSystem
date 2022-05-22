@@ -30,6 +30,10 @@ namespace UnifiedLearningSystem.Infrastructure
             builder.AddSignInManager<SignInManager<IdentityUser<Guid>>>();
 
             services.AddTransient<ILearningTaskRepository, LearningTaskRepository>();
+            services.AddTransient<ITaskUserRepository,TaskUserRepository>();
+
+            services.AddTransient<IUnitOfWork, LearningUnitOfWork>();
+
             services.AddTransient<IIdentityService, LearningIdentityService>();
         }
     }

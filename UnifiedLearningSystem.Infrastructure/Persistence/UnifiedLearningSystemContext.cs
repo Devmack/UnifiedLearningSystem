@@ -8,6 +8,7 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
     {
         public DbSet<LearningLesson> Lessons { get; set; }
         public DbSet<LearningTask> LearningTasks { get; set; }
+        public DbSet<TaskUser> UserTasks { get; set; }
 
         public UnifiedLearningSystemContext(DbContextOptions<UnifiedLearningSystemContext> options) : base(options) {}
 

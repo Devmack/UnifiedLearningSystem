@@ -10,6 +10,11 @@ namespace UnifiedLearningSystem.Domain.Entities
         public TaskRepositoriumLink RepositoriumLink { get; private set; }
         public List<TaskReview> TaskUserReviews { get; private set; }
 
+        public TaskUser()
+        {
+
+        }
+
         internal TaskUser(Guid taskOwnerUserID, Guid taskID, TaskRepositoriumLink repositoriumLink, List<TaskReview> taskUserReviews)
         {
             TaskOwnerUserID = taskOwnerUserID;
