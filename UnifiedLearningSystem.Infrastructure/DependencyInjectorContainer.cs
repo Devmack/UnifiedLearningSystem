@@ -20,7 +20,7 @@ namespace UnifiedLearningSystem.Infrastructure
                 options.UseSqlServer(config["ApplicationDatabases:Identity"]));
 
             var builder = services.AddIdentityCore<IdentityUser<Guid>>(options =>
-                                       options.SignIn.RequireConfirmedAccount = true)
+                                       options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationUserContext>();
 
             services.AddAuthentication();
@@ -31,8 +31,9 @@ namespace UnifiedLearningSystem.Infrastructure
 
             services.AddTransient<ILearningTaskRepository, LearningTaskRepository>();
             services.AddTransient<ITaskUserRepository,TaskUserRepository>();
+            services.AddTransient<ILearningLessonRepository,LearningLessonRepository>();
 
-            services.AddTransient<IUnitOfWork, LearningUnitOfWork>();
+            services.AddScoped<IUnitOfWork, LearningUnitOfWork>();
 
             services.AddTransient<IIdentityService, LearningIdentityService>();
         }

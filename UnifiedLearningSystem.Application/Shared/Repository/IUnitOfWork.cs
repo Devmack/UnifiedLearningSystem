@@ -4,6 +4,7 @@
     {
         public ILearningTaskRepository LearningTaskRepository { get; set; }
         public ITaskUserRepository TaskUserRepository { get; set; }
+        public ILearningLessonRepository LearningLessonRepository { get; set; }
 
         void BeginTransaction();
         void SaveChanges();

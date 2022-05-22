@@ -6,13 +6,16 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
     {
         public ILearningTaskRepository LearningTaskRepository { get; set; }
         public ITaskUserRepository TaskUserRepository { get; set; }
+        public ILearningLessonRepository LearningLessonRepository { get; set; }
 
         private readonly UnifiedLearningSystemContext context;
 
-        public LearningUnitOfWork(ILearningTaskRepository learningTaskRepository, ITaskUserRepository taskUserRepository, UnifiedLearningSystemContext context)
+        public LearningUnitOfWork(ILearningTaskRepository learningTaskRepository, ITaskUserRepository taskUserRepository, UnifiedLearningSystemContext context, ILearningLessonRepository learningLessonRepository)
         {
             LearningTaskRepository = learningTaskRepository;
             TaskUserRepository = taskUserRepository;
+            LearningLessonRepository = learningLessonRepository;
+
             this.context = context;
         }
 
