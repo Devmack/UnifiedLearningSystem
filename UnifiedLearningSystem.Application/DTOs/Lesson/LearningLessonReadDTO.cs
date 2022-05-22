@@ -7,6 +7,6 @@ namespace UnifiedLearningSystem.Application.DTOs.Lesson
     {
         public Guid Id { get; set; }
         public LessonTitle Title { get; set; }
-        public ICollection<LearningTaskReadDTO> Tasks { get; set; }
+        public ICollection<LearningTaskCreateDTO> Tasks { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace UnifiedLearningSystem.API.Controllers
 
         [HttpGet]
         [Route("tasks")]
-        public async Task<ActionResult<List<LearningTaskReadDTO>>> GetAllTasks()
+        public async Task<ActionResult<List<LearningTaskCreateDTO>>> GetAllTasks()
         {
             return Ok(await mediatR.Send(new GetAllLearningTaskQuery()));
         }

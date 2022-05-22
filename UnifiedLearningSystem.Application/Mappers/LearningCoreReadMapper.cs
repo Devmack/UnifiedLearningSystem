@@ -5,11 +5,11 @@ using UnifiedLearningSystem.Domain.Factories;
 
 namespace UnifiedLearningSystem.Application.Mappers
 {
-    public class LearningCoreReadMapper : ILearningCoreMapper<LearningTask, LearningTaskReadDTO>
+    public class LearningCoreReadMapper : ILearningCoreMapper<LearningTask, LearningTaskCreateDTO>
     {
-        public LearningTask ConvertFrom(LearningTaskReadDTO createDTO) => LearningTaskFactory.Build(createDTO._taskTitle, createDTO._taskDescription);
+        public LearningTask ConvertFrom(LearningTaskCreateDTO createDTO) => LearningTaskFactory.Build(createDTO._taskTitle, createDTO._taskDescription);
 
-        public LearningTaskReadDTO ConvertFrom(LearningTask createDTO)
+        public LearningTaskCreateDTO ConvertFrom(LearningTask createDTO)
         {
             return new(createDTO.TaskTitle, createDTO.TaskDescription);
         }

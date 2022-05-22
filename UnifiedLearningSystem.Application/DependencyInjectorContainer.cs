@@ -18,10 +18,11 @@ namespace UnifiedLearningSystem.Application
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
             services.AddScoped<ILearningCoreMapper<LearningTask, LearningTaskCreateDTO>, LearningCoreMapper>();
-            services.AddScoped<ILearningCoreMapper<LearningTask, LearningTaskReadDTO>, LearningCoreReadMapper>();
+            services.AddScoped<ILearningCoreMapper<LearningTask, LearningTaskCreateDTO>, LearningCoreReadMapper>();
             services.AddScoped<ILearningCoreMapper<TaskUserReadDTO, TaskUser>, LearningOwnerMapper>();
             services.AddScoped<ILearningCoreMapper<TaskUserCreateDTO, TaskUser>, LearningOwnerCreateMapper>();
             services.AddScoped<ILearningCoreMapper<LearningLessonReadDTO, LearningLesson>, LearningLessonMapper>();
+            services.AddScoped<ILearningCoreMapper<LearningLessonCreateDTO, LearningLesson>, LearningLessonCreateMapper>();
 
             
         }

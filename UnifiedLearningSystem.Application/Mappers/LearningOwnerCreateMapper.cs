@@ -8,7 +8,7 @@ namespace UnifiedLearningSystem.Application.Mappers
     public class LearningOwnerCreateMapper : ILearningCoreMapper<TaskUserCreateDTO, TaskUser>
     {
         public TaskUserCreateDTO ConvertFrom(TaskUser createDTO)
-        {
+        {   
             return new TaskUserCreateDTO()
             {
                 RepositoriumLink = createDTO.RepositoriumLink,

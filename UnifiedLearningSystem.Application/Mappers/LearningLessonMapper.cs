@@ -7,16 +7,16 @@ namespace UnifiedLearningSystem.Application.Mappers
 {
     public class LearningLessonMapper : ILearningCoreMapper<LearningLessonReadDTO, LearningLesson>
     {
-        private readonly ILearningCoreMapper<LearningTask, LearningTaskReadDTO> taskMapper;
+        private readonly ILearningCoreMapper<LearningTask, LearningTaskCreateDTO> taskMapper;
 
-        public LearningLessonMapper(ILearningCoreMapper<LearningTask, LearningTaskReadDTO> taskMapper)
+        public LearningLessonMapper(ILearningCoreMapper<LearningTask, LearningTaskCreateDTO> taskMapper)
         {
             this.taskMapper = taskMapper;
         }
 
         public LearningLessonReadDTO ConvertFrom(LearningLesson readDto)
         {
-            List<LearningTaskReadDTO> collectionOfMappedTasks = new ();
+            List<LearningTaskCreateDTO> collectionOfMappedTasks = new ();
 
             readDto.Tasks.ToList().ForEach(task => collectionOfMappedTasks.Add(taskMapper.ConvertFrom(task)));
 
