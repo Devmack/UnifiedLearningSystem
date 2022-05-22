@@ -5,7 +5,7 @@ namespace UnifiedLearningSystem.Application.DTOs.Lesson
 {
     public record LearningLessonCreateDTO
     {
-        public LessonTitle Title { get; set; }
+        public string Title { get; set; }
         public ICollection<LearningTaskCreateDTO> Tasks { get; set; }
     }
     
