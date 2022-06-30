@@ -1,6 +1,11 @@
-﻿namespace UnifiedLearningSystem.Application.CQRS.Lessons.Commands
+﻿using MediatR;
+using UnifiedLearningSystem.Application.DTOs.TaskUser;
+
+namespace UnifiedLearningSystem.Application.CQRS.Lessons.Commands
 {
-    internal class AddTaskToLessonCommand
+    public class AddTaskToLessonCommand : IRequest<bool>
     {
+        
     }
+
 }

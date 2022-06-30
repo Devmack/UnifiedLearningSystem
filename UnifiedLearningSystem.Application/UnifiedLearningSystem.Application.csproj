@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <Folder Include="CQRS\Identity\Queries\" />
+    <Folder Include="CQRS\TaskUser\Queries\" />
     <Folder Include="Exceptions\" />
   </ItemGroup>
 
