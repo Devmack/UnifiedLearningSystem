@@ -29,9 +29,9 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
             return await context.UserTasks.ToListAsync();
         }
 
-        public Task<TaskUser> GetSingleAsync(Guid id)
+        public async Task<TaskUser> GetSingleAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await context.UserTasks.FirstAsync(el => el.AggregateID == id);
         }
 
         public Task<ICollection<TaskUser>> GetSubsetBasedOnAsync(Func<TaskUser, bool> subsetPredicate)
@@ -39,9 +39,10 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(TaskUser task)
+        public async Task UpdateAsync(TaskUser task)
         {
-            throw new NotImplementedException();
+            context.UserTasks.Update(task);
+            await context.SaveChangesAsync();
         }
     }
 }

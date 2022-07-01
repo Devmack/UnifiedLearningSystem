@@ -22,5 +22,12 @@ namespace UnifiedLearningSystem.API.Controllers
         {
             return Ok(await mediatR.Send(new SendSolutionToReviewCommand(taskUserCreateDTO)));
         }
+
+        [HttpPost]
+        [Route("review")]
+        public async Task<ActionResult> AddReview(Guid id, string reviewDescription)
+        {
+            return Ok(await mediatR.Send(new ReviewSolutionCommand(id, reviewDescription)));
+        }
     }
 }
