@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using UnifiedLearningSystem.Application.CQRS.TaskUser.Commands;
+using UnifiedLearningSystem.Application.CQRS.TaskUser.Queries;
 using UnifiedLearningSystem.Application.DTOs.TaskUser;
 
 namespace UnifiedLearningSystem.API.Controllers
@@ -15,6 +16,14 @@ namespace UnifiedLearningSystem.API.Controllers
         {
             this.mediatR = mediatR;
         }
+
+        [HttpGet]
+        [Route("reviews/{id}")]
+        public async Task<ActionResult> CreateNewTask(Guid id)
+        {
+            return Ok(await mediatR.Send(new GetAllSolutionsOfUserQuery(id)));
+        }
+
 
         [HttpPost]
         [Route("userTask")]

@@ -34,9 +34,10 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
             return await context.UserTasks.FirstAsync(el => el.AggregateID == id);
         }
 
-        public Task<ICollection<TaskUser>> GetSubsetBasedOnAsync(Func<TaskUser, bool> subsetPredicate)
+        public async Task<ICollection<TaskUser>> GetSubsetBasedOnAsync(Func<TaskUser, bool> subsetPredicate)
         {
-            throw new NotImplementedException();
+            var generalCollection = await context.UserTasks.ToListAsync();
+            return generalCollection.Where(subsetPredicate).ToList();
         }
 
         public async Task UpdateAsync(TaskUser task)
