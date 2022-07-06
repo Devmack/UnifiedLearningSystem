@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using UnifiedLearningSystem.Application.CQRS.TaskUser.Commands;
 using UnifiedLearningSystem.Application.CQRS.TaskUser.Queries;
 using UnifiedLearningSystem.Application.DTOs.TaskUser;
+using UnifiedLearningSystem.Application.Shared.QueryHelper;
 
 namespace UnifiedLearningSystem.API.Controllers
 {
@@ -19,9 +20,16 @@ namespace UnifiedLearningSystem.API.Controllers
 
         [HttpGet]
         [Route("reviews/{id}")]
-        public async Task<ActionResult> CreateNewTask(Guid id)
+        public async Task<ActionResult> GetAllSolutionsOfUser(Guid id)
         {
             return Ok(await mediatR.Send(new GetAllSolutionsOfUserQuery(id)));
+        }
+
+        [HttpGet]
+        [Route("reviews")]
+        public async Task<ActionResult> GetAllSolutions([FromQuery] PageQuery queryPage)
+        {
+            return Ok(await mediatR.Send(new GetAllSolutionsQuery(queryPage)));
         }
 
 

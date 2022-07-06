@@ -1,10 +1,12 @@
-﻿using UnifiedLearningSystem.Domain.Entities;
+﻿using UnifiedLearningSystem.CommonAbstraction.Interfaces;
+using UnifiedLearningSystem.Domain.Entities;
 
 namespace UnifiedLearningSystem.Application.Shared.Repository
 {
     public interface ITaskUserRepository
     {
         public Task<ICollection<TaskUser>> GetAllAsync();
+        public Task<ICollection<TaskUser>> GetAllAsync(IPageQuery queryPage);
         public Task<ICollection<TaskUser>> GetSubsetBasedOnAsync(Func<TaskUser, bool> subsetPredicate);
         public Task<TaskUser> GetSingleAsync(Guid id);
         public Task AddAsync(TaskUser task);
