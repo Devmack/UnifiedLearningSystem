@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UnifiedLearningSystem.Application.CQRS.Identity.Commands;
+using UnifiedLearningSystem.Application.CQRS.Identity.Queries;
 using UnifiedLearningSystem.Application.DTOs.Identity;
 
 namespace UnifiedLearningSystem.API.Controllers
@@ -30,5 +31,12 @@ namespace UnifiedLearningSystem.API.Controllers
         {
             return Ok(await mediatR.Send(new LoginUserCommand(credentials)));
         }
+        [HttpGet]
+        [Route("user/{id}")]
+        public async Task<ActionResult> GetUser(Guid id)
+        {
+            return Ok(await mediatR.Send(new GetLoggedUserQuery(id)));
+        }
+
     }
 }
