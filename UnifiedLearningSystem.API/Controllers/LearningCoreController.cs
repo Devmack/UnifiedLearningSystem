@@ -30,5 +30,12 @@ namespace UnifiedLearningSystem.API.Controllers
         {
             return Ok(await mediatR.Send(newTaskCommand));
         }
+
+        [HttpDelete]
+        [Route("tasks/{id}")]
+        public async Task<ActionResult> DeleteTask(Guid id)
+        {
+            return Ok(await mediatR.Send(new DeleteTaskCommand(id)));
+        }
     }
 }

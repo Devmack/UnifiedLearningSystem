@@ -19,19 +19,20 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
             await context.SaveChangesAsync();   
         }
 
-        public Task DeleteAsync(LearningTask task)
+        public async Task DeleteAsync(LearningTask task)
         {
-            throw new NotImplementedException();
+            context.LearningTasks.Remove(task);
+            await context.SaveChangesAsync();
         }
 
-        public async Task<ICollection<LearningTask>> GetAllAsync()
+        public async Task<List<LearningTask>> GetAllAsync()
         {
             return await context.LearningTasks.ToListAsync();
         }
 
-        public Task<LearningTask> GetSingleAsync(Guid id)
+        public async Task<LearningTask> GetSingleAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await context.LearningTasks.FirstAsync(el => el.AggregateID == id);
         }
 
         public Task<ICollection<LearningTask>> GetSubsetBasedOnAsync(Func<LearningTask, bool> subsetPredicate)
