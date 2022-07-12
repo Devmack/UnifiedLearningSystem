@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using UnifiedLearningSystem.Application.CQRS.LearningTasks;
 using UnifiedLearningSystem.Application.CQRS.LearningTasks.Commands;
+using UnifiedLearningSystem.Application.CQRS.LearningTasks.Queries;
 using UnifiedLearningSystem.Application.DTOs.LearningTask;
 
 namespace UnifiedLearningSystem.API.Controllers
@@ -22,6 +23,13 @@ namespace UnifiedLearningSystem.API.Controllers
         public async Task<ActionResult<List<LearningTaskCreateDTO>>> GetAllTasks()
         {
             return Ok(await mediatR.Send(new GetAllLearningTaskQuery()));
+        }
+
+        [HttpGet]
+        [Route("task/{id}")]
+        public async Task<ActionResult<LearningTaskCreateDTO>> GetSingleTask(Guid id)
+        {
+            return Ok(await mediatR.Send(new GetSingleTaskQuery(id)));
         }
 
         [HttpPost]
