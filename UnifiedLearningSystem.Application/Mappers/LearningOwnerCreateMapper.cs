@@ -19,7 +19,7 @@ namespace UnifiedLearningSystem.Application.Mappers
         public TaskUser ConvertFrom(TaskUserCreateDTO createDTO)
         {
             return TaskUserFactory
-                .Build(createDTO.TaskOwnerUserID, Guid.NewGuid(), createDTO.RepositoriumLink, new List<TaskReview>());
+                .Build(createDTO.TaskOwnerUserID, createDTO.TaskID, createDTO.RepositoriumLink, new List<TaskReview>());
         }
     }
 }
