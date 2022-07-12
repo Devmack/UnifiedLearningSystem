@@ -53,7 +53,7 @@ namespace UnifiedLearningSystem.Infrastructure.Security
             var jwtSecurityToken = new JwtSecurityToken(
                 issuer: config["Token:Issuer"],
                 audience: config["Token:Audience"],
-                claims: new[] { new Claim(JwtRegisteredClaimNames.Sub, user.UserName) },
+                claims: new[] { new Claim(JwtRegisteredClaimNames.Sub, user.UserName), new Claim(JwtRegisteredClaimNames.Jti, user.Id.ToString()) },
                 expires: DateTime.UtcNow.AddMinutes(5),
                 signingCredentials: signingCredentials);
 
