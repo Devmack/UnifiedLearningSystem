@@ -37,16 +37,6 @@ namespace UnifiedLearningSystem.Infrastructure.Security
                 roles = new List<string>();
             }
 
-        //    var claims = new[]
-        //    {
-        //    new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-        //    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-        //    new Claim(JwtRegisteredClaimNames.Email, user.Email),
-        //    new Claim(ClaimTypes.Role,"adminEdu")
-        //};
-        //Union(usrClaims);
-        ///.Union(roleClaims);
-
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Token:Key"]));
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
 

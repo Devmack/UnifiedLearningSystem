@@ -26,12 +26,27 @@ namespace UnifiedLearningSystem.API.Controllers
         }
 
         [HttpPost]
+        [Route("role")]
+        public async Task<ActionResult> AddNewRole(string roleName)
+        {
+            return Ok(await mediatR.Send(new CreateNewRoleCommand(roleName)));
+        }
+
+        [HttpPost]
+        [Route("user/role")]
+        public async Task<ActionResult> AssignRoleToUser(AssignRoleToUserCommand command)
+        {
+            return Ok(await mediatR.Send(command));
+        }
+
+        [HttpPost]
         [Route("login")]
         public async Task<string> Login(CredentialsContainerDTO credentials)
         {
             var result = await mediatR.Send(new LoginUserCommand(credentials));
             return result;
         }
+
         [HttpGet]
         [Route("user/{id}")]
         public async Task<ActionResult> GetUser(Guid id)
