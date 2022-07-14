@@ -43,6 +43,8 @@ namespace UnifiedLearningSystem.Infrastructure.Identity
             if (!isUserCreated.Succeeded) return false;
             
             var registerAction = await _userManager.AddPasswordAsync(newUser, credentials.password);
+            var user = await _userManager.FindByNameAsync(credentials.login);
+            await _userManager.AddToRoleAsync(user, "Student");
 
             return registerAction.Succeeded;
         }
