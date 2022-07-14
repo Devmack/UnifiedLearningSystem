@@ -24,18 +24,21 @@ namespace UnifiedLearningSystem.Infrastructure.Security
             var usrClaims = await _userManager.GetClaimsAsync(user);
             var roles = await _userManager.GetRolesAsync(user);
 
-            var roleClaims = new List<Claim>();
+            var allClaims = new List<Claim>();
 
             if (roles.Any())
             {
                 for (int i = 0; i < roles.Count; i++)
                 {
-                    roleClaims.Add(new Claim(ClaimTypes.Role, roles[i]));
+                    allClaims.Add(new Claim(ClaimTypes.Role, roles[i]));
                 }
             } else
             {
                 roles = new List<string>();
             }
+
+            allClaims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.UserName));
+            allClaims.Add(new Claim(JwtRegisteredClaimNames.Jti, user.Id.ToString()));
 
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Token:Key"]));
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
@@ -43,7 +46,7 @@ namespace UnifiedLearningSystem.Infrastructure.Security
             var jwtSecurityToken = new JwtSecurityToken(
                 issuer: config["Token:Issuer"],
                 audience: config["Token:Audience"],
-                claims: new[] { new Claim(JwtRegisteredClaimNames.Sub, user.UserName), new Claim(JwtRegisteredClaimNames.Jti, user.Id.ToString()) },
+                claims: allClaims,
                 expires: DateTime.UtcNow.AddMinutes(5),
                 signingCredentials: signingCredentials);
 
