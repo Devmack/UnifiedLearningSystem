@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UnifiedLearningSystem.Application.CQRS.LearningTasks;
 using UnifiedLearningSystem.Application.CQRS.LearningTasks.Commands;
@@ -7,6 +8,7 @@ using UnifiedLearningSystem.Application.DTOs.LearningTask;
 
 namespace UnifiedLearningSystem.API.Controllers
 {
+    [Authorize(AuthenticationSchemes = "Bearer", Roles = "student")]
     [Route("api/[controller]")]
     [ApiController]
     public class LearningCoreController : ControllerBase

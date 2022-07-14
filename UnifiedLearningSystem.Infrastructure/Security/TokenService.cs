@@ -47,7 +47,7 @@ namespace UnifiedLearningSystem.Infrastructure.Security
                 issuer: config["Token:Issuer"],
                 audience: config["Token:Audience"],
                 claims: allClaims,
-                expires: DateTime.UtcNow.AddMinutes(5),
+                expires: DateTime.UtcNow.AddDays(1),
                 signingCredentials: signingCredentials);
 
             var stringifiedToken = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
