@@ -8,9 +8,11 @@ namespace UnifiedLearningSystem.Application.CQRS.TaskUser.Queries
     public class GetAllSolutionsOfUserQuery : IRequest<List<TaskUserReadDTO>>
     {
         public Guid SearchedSolutionUserId { get; }
-        public GetAllSolutionsOfUserQuery(Guid searchedSolutionUserId)
+        public bool AreReviewsIncluded { get; }
+        public GetAllSolutionsOfUserQuery(Guid searchedSolutionUserId, bool areReviewsIncluded = false)
         {
             SearchedSolutionUserId = searchedSolutionUserId;
+            AreReviewsIncluded = areReviewsIncluded;
         }
     }
 
@@ -26,7 +28,15 @@ namespace UnifiedLearningSystem.Application.CQRS.TaskUser.Queries
         }
         public async Task<List<TaskUserReadDTO>> Handle(GetAllSolutionsOfUserQuery request, CancellationToken cancellationToken)
         {
-            var targetSolutions = await repository.TaskUserRepository.GetSubsetBasedOnAsync(el => el.TaskOwnerUserID == request.SearchedSolutionUserId);
+            ICollection<Domain.Entities.TaskUser> targetSolutions;
+            if (request.AreReviewsIncluded)
+            {
+                targetSolutions = await repository.TaskUserRepository.GetSubsetBasedOnAsync(el => el.TaskOwnerUserID == request.SearchedSolutionUserId && el.TaskUserReviews.Any());
+            }
+            else
+            {
+                targetSolutions = await repository.TaskUserRepository.GetSubsetBasedOnAsync(el => el.TaskOwnerUserID == request.SearchedSolutionUserId);
+            }
             var targetMappedSolutions = new List<TaskUserReadDTO>();
             targetSolutions.ToList().ForEach(el => targetMappedSolutions.Add(mapper.ConvertFrom(el)));
 

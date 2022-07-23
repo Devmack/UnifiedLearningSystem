@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UnifiedLearningSystem.Application.CQRS.TaskUser.Commands;
 using UnifiedLearningSystem.Application.CQRS.TaskUser.Queries;
@@ -7,6 +8,7 @@ using UnifiedLearningSystem.Application.Shared.QueryHelper;
 
 namespace UnifiedLearningSystem.API.Controllers
 {
+    [Authorize(AuthenticationSchemes = "Bearer", Roles = "student")]
     [Route("api/[controller]")]
     [ApiController]
     public class TaskUserController : ControllerBase
@@ -26,6 +28,13 @@ namespace UnifiedLearningSystem.API.Controllers
         }
 
         [HttpGet]
+        [Route("reviews/{id}/reviews")]
+        public async Task<ActionResult> GetAllSolutionsOfUserWithReviews(Guid id)
+        {
+            return Ok(await mediatR.Send(new GetAllSolutionsOfUserQuery(id, true)));
+        }
+
+        [HttpGet]
         [Route("reviews")]
         public async Task<ActionResult> GetAllSolutions([FromQuery] PageQuery queryPage)
         {
@@ -40,7 +49,8 @@ namespace UnifiedLearningSystem.API.Controllers
             return Ok(await mediatR.Send(new SendSolutionToReviewCommand(taskUserCreateDTO)));
         }
 
-        [HttpPost]
+        [HttpPut]
+        [AllowAnonymous]
         [Route("review")]
         public async Task<ActionResult> AddReview(Guid id, string reviewDescription)
         {
