@@ -6,6 +6,7 @@ namespace UnifiedLearningSystem.Application.DTOs.TaskUser
     {
         public Guid TaskOwnerUserID { get; set; }
         public Guid TaskID { get; set; }
+        public DateTime TimeOfSubmission { get; set; }
         public TaskRepositoriumLink RepositoriumLink { get; set; }
         public List<TaskReview> TaskUserReviews { get; set; }
     }

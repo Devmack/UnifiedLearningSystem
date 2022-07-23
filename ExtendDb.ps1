@@ -1,0 +1,3 @@
+dotnet ef --project .\UnifiedLearningSystem.Infrastructure\ --startup-project .\UnifiedLearningSystem.API\ migrations add $args[0] --context UnifiedLearningSystem.Infrastructure.Persistence.UnifiedLearningSystemContext
+
+dotnet ef --project .\UnifiedLearningSystem.Infrastructure\ --startup-project .\UnifiedLearningSystem.API\ database update --context UnifiedLearningSystem.Infrastructure.Persistence.UnifiedLearningSystemContext

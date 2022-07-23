@@ -7,6 +7,7 @@ namespace UnifiedLearningSystem.Domain.Entities
     {
         public Guid TaskOwnerUserID { get; private set; }
         public Guid TaskID { get; private set; }
+        public DateTime TimeOfSubmission { get; set; }
         public TaskRepositoriumLink RepositoriumLink { get; private set; }
         public List<TaskReview> TaskUserReviews { get; private set; }
 
@@ -15,12 +16,13 @@ namespace UnifiedLearningSystem.Domain.Entities
 
         }
 
-        internal TaskUser(Guid taskOwnerUserID, Guid taskID, TaskRepositoriumLink repositoriumLink, List<TaskReview> taskUserReviews)
+        internal TaskUser(Guid taskOwnerUserID, Guid taskID, TaskRepositoriumLink repositoriumLink, List<TaskReview> taskUserReviews, DateTime time)
         {
             TaskOwnerUserID = taskOwnerUserID;
             TaskID = taskID;
             RepositoriumLink = repositoriumLink;
             TaskUserReviews = taskUserReviews;
+            TimeOfSubmission = time;
 
             AddEvent(new TaskUserCreated(TaskID.ToString()));
         }

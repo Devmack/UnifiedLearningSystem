@@ -13,14 +13,15 @@ namespace UnifiedLearningSystem.Application.Mappers
                 TaskID = createDTO.TaskID,
                 TaskOwnerUserID = createDTO.TaskOwnerUserID,
                 RepositoriumLink = createDTO.RepositoriumLink,
-                TaskUserReviews = createDTO.TaskUserReviews
+                TaskUserReviews = createDTO.TaskUserReviews,
+                TimeOfSubmission = createDTO.TimeOfSubmission
             };
         }
 
         public TaskUser ConvertFrom(TaskUserReadDTO createDTO)
         {
             return TaskUserFactory
-                .Build(createDTO.TaskOwnerUserID, createDTO.TaskID, createDTO.RepositoriumLink, createDTO.TaskUserReviews);
+                .Build(createDTO.TaskOwnerUserID, createDTO.TaskID, createDTO.RepositoriumLink, createDTO.TaskUserReviews, createDTO.TimeOfSubmission);
         }
     }
 }

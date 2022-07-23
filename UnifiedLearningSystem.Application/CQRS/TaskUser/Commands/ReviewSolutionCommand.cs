@@ -21,12 +21,10 @@ namespace UnifiedLearningSystem.Application.CQRS.TaskUser.Commands
     public class ReviewSolutionCommandHandler : IRequestHandler<ReviewSolutionCommand, bool>
     {
         private readonly IUnitOfWork repository;
-        private readonly ILearningCoreMapper<TaskUserReadDTO, Domain.Entities.TaskUser> mapper;
 
-        public ReviewSolutionCommandHandler(IUnitOfWork repository, ILearningCoreMapper<TaskUserReadDTO, Domain.Entities.TaskUser> mapper)
+        public ReviewSolutionCommandHandler(IUnitOfWork repository)
         {
             this.repository = repository;
-            this.mapper = mapper;
         }
 
         public async Task<bool> Handle(ReviewSolutionCommand request, CancellationToken cancellationToken)
