@@ -6,6 +6,8 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
 {
     public class ApplicationUserContext : IdentityDbContext<IdentityUser<Guid>, IdentityRole<Guid>, Guid>
     {
-        public ApplicationUserContext(DbContextOptions<ApplicationUserContext> options) : base(options) { }
+        public ApplicationUserContext(DbContextOptions<ApplicationUserContext> options) : base(options) {
+            Database.EnsureCreated();
+        }
     }
 }

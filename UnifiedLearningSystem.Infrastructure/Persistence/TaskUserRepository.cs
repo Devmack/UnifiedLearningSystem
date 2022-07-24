@@ -20,9 +20,10 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
             await context.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(TaskUser task)
+        public async Task DeleteAsync(TaskUser task)
         {
-            throw new NotImplementedException();
+            context.UserTasks.Remove(task);
+            await context.SaveChangesAsync();
         }
 
         public async Task<ICollection<TaskUser>> GetAllAsync()

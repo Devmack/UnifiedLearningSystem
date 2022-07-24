@@ -10,7 +10,9 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
         public DbSet<LearningTask> LearningTasks { get; set; }
         public DbSet<TaskUser> UserTasks { get; set; }
 
-        public UnifiedLearningSystemContext(DbContextOptions<UnifiedLearningSystemContext> options) : base(options) {}
+        public UnifiedLearningSystemContext(DbContextOptions<UnifiedLearningSystemContext> options) : base(options) {
+            Database.EnsureCreated();
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
