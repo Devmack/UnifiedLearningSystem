@@ -8,9 +8,11 @@ using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using System.Text;
 using UnifiedLearningSystem.Application.Shared.Identity;
+using UnifiedLearningSystem.Application.Shared.Pagination;
 using UnifiedLearningSystem.Application.Shared.Repository;
 using UnifiedLearningSystem.Application.Shared.Security;
 using UnifiedLearningSystem.Infrastructure.Identity;
+using UnifiedLearningSystem.Infrastructure.Pagination;
 using UnifiedLearningSystem.Infrastructure.Persistence;
 using UnifiedLearningSystem.Infrastructure.Security;
 
@@ -82,14 +84,15 @@ namespace UnifiedLearningSystem.Infrastructure
             builder = new IdentityBuilder(builder.UserType, builder.Services);
             builder.AddSignInManager<SignInManager<IdentityUser<Guid>>>();
 
-            services.AddTransient<ILearningTaskRepository, LearningTaskRepository>();
-            services.AddTransient<ITaskUserRepository,TaskUserRepository>();
-            services.AddTransient<ILearningLessonRepository,LearningLessonRepository>();
+            services.AddScoped<ILearningTaskRepository, LearningTaskRepository>();
+            services.AddScoped<ITaskUserRepository,TaskUserRepository>();
+            services.AddScoped<ILearningLessonRepository,LearningLessonRepository>();
 
             services.AddScoped<IUnitOfWork, LearningUnitOfWork>();
 
             services.AddTransient<IIdentityService, LearningIdentityService>();
             services.AddTransient<ITokenService, TokenService>();
+            services.AddTransient<IPaginationService, PaginationService>();
         }
     }
 }

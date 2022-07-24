@@ -5,6 +5,7 @@ using UnifiedLearningSystem.Application.CQRS.LearningTasks;
 using UnifiedLearningSystem.Application.CQRS.LearningTasks.Commands;
 using UnifiedLearningSystem.Application.CQRS.LearningTasks.Queries;
 using UnifiedLearningSystem.Application.DTOs.LearningTask;
+using UnifiedLearningSystem.Application.Shared.QueryHelper;
 
 namespace UnifiedLearningSystem.API.Controllers
 {
@@ -32,6 +33,14 @@ namespace UnifiedLearningSystem.API.Controllers
         public async Task<ActionResult<LearningTaskCreateDTO>> GetSingleTask(Guid id)
         {
             return Ok(await mediatR.Send(new GetSingleTaskQuery(id)));
+        }
+            
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("tasks/pages")]
+        public async Task<ActionResult> GetAllTaskPaginated([FromQuery] PageQuery queryPage)
+        {
+            return Ok(await mediatR.Send(new GetAllLearningTaskPaginated(queryPage)));
         }
 
         [HttpPost]

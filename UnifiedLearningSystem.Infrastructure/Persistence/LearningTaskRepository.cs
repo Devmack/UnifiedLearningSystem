@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using UnifiedLearningSystem.Application.Shared.Repository;
+using UnifiedLearningSystem.CommonAbstraction.Interfaces;
 using UnifiedLearningSystem.Domain.Entities;
 
 namespace UnifiedLearningSystem.Infrastructure.Persistence
@@ -19,6 +20,11 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
             await context.SaveChangesAsync();   
         }
 
+        public async Task<int> CountElements()
+        {
+            return await context.LearningTasks.CountAsync();
+        }
+
         public async Task DeleteAsync(LearningTask task)
         {
             context.LearningTasks.Remove(task);
@@ -28,6 +34,13 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
         public async Task<List<LearningTask>> GetAllAsync()
         {
             return await context.LearningTasks.ToListAsync();
+        }
+
+        public async Task<List<LearningTask>> GetAllAsync(IPageQuery queryPage)
+        {
+            var query = context.LearningTasks.Take(queryPage.MaxElements).Skip(queryPage.CurrentPage - 1 * queryPage.ElementsPerPage);
+            return await query.ToListAsync();
+
         }
 
         public async Task<LearningTask> GetSingleAsync(Guid id)
