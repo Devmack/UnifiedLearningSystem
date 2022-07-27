@@ -17,10 +17,17 @@ namespace UnifiedLearningSystem.API.Controllers
         }
 
         [HttpPost]
-        [Route("task")]
-        public async Task<ActionResult> CreateNewTask(LearningLessonCreateDTO lessonCreateDTO)
+        [Route("lesson/new")]
+        public async Task<ActionResult> CreateNewLesson(LearningLessonCreateDTO lessonCreateDTO)
         {
             return Ok(await mediatR.Send(new CreateNewLessonCommand(lessonCreateDTO)));
+        }
+
+        [HttpPut]
+        [Route("lesson/update")]
+        public async Task<ActionResult> CreateNewLesson(AddTaskToLessonDTO lessonUpdateDTO)
+        {
+            return Ok(await mediatR.Send(new AddTaskToLessonCommand(lessonUpdateDTO)));
         }
     }
 }

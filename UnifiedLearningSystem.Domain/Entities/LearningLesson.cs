@@ -35,6 +35,14 @@ namespace UnifiedLearningSystem.Domain.Entities
             AddEvent(new NewTaskAddedEvent(task));
         }
 
+        public void AddTasks(ICollection<LearningTask> tasks)
+        {
+            foreach (var singleTask in tasks)
+            {
+                AddTask(singleTask);
+            }
+        }
+
         public override string ToString()
         {
             return $"Lesson: {Title}";

@@ -10,6 +10,7 @@ namespace UnifiedLearningSystem.Application.Shared.Repository
         public Task<List<LearningTask>> GetAllAsync(IPageQuery queryPage);
         public Task<int> CountElements();
         public Task<LearningTask> GetSingleAsync(Guid id);
+        public LearningTask GetSingle(Guid id);
         public Task AddAsync(LearningTask task);
         public Task DeleteAsync(LearningTask task);
         public Task UpdateAsync(LearningTask task);

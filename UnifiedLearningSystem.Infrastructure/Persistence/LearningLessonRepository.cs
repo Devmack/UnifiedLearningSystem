@@ -29,9 +29,19 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
             return await context.Lessons.ToListAsync();
         }
 
-        public Task<LearningLesson> GetSingleAsync(Guid id)
+        public LearningLesson GetSingle(Guid id)
         {
-            throw new NotImplementedException();
+            return context.Lessons.First(el => el.AggregateID == id);
+        }
+
+        public async Task<LearningLesson> GetSingleAsync(Guid id)
+        {
+            return await context.Lessons.FirstAsync(el => el.AggregateID == id);
+        }
+
+        public ICollection<LearningLesson> GetSubsetBasedOn(Func<LearningLesson, bool> subsetPredicate)
+        {
+            return context.Lessons.Include(el => el.Tasks).Where(subsetPredicate).ToList();
         }
 
         public Task<ICollection<LearningLesson>> GetSubsetBasedOnAsync(Func<LearningLesson, bool> subsetPredicate)
@@ -39,9 +49,10 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(LearningLesson task)
-        {
-            throw new NotImplementedException();
+        public async Task UpdateAsync(LearningLesson lesson)
+        {   
+            context.Lessons.Update(lesson);
+            await context.SaveChangesAsync();
         }
     }
 }

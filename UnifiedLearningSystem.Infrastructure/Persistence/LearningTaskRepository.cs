@@ -43,6 +43,11 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
 
         }
 
+        public LearningTask GetSingle(Guid id)
+        {
+            return context.LearningTasks.First(el => el.AggregateID == id);
+        }
+
         public async Task<LearningTask> GetSingleAsync(Guid id)
         {
             return await context.LearningTasks.FirstAsync(el => el.AggregateID == id);

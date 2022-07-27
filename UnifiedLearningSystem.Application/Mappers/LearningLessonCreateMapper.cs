@@ -26,18 +26,13 @@ namespace UnifiedLearningSystem.Application.Mappers
             return new LearningLessonCreateDTO()
             {
                 Title = createDTO.Title,
-                Tasks = collectionOfMappedTasks
             };
         }
 
         public LearningLesson ConvertFrom(LearningLessonCreateDTO createDTO)
         {
-            List<LearningTask> collectionOfMappedTasks = new();
-            if (createDTO.Tasks.Any())
-            {
-                createDTO.Tasks.ToList().ForEach(task => collectionOfMappedTasks.Add(learningCoreMapper.ConvertFrom(task)));
-            }
-            return LearningLessonFactory.Build(createDTO.Title, collectionOfMappedTasks);
+
+            return LearningLessonFactory.Build(createDTO.Title);
         }
     }
 }

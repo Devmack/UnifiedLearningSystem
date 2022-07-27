@@ -23,6 +23,7 @@ namespace UnifiedLearningSystem.Application
             services.AddScoped<ILearningCoreMapper<TaskUserCreateDTO, TaskUser>, LearningOwnerCreateMapper>();
             services.AddScoped<ILearningCoreMapper<LearningLessonReadDTO, LearningLesson>, LearningLessonMapper>();
             services.AddScoped<ILearningCoreMapper<LearningLessonCreateDTO, LearningLesson>, LearningLessonCreateMapper>();
+            services.AddScoped<ILearningCoreMapper<AddTaskToLessonDTO, LearningLesson>, LearningLessonAddTasksUpdateMapper>();
 
             
         }
