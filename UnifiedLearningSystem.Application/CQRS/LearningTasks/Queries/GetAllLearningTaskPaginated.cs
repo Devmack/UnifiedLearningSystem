@@ -8,7 +8,7 @@ using UnifiedLearningSystem.Domain.Entities;
 
 namespace UnifiedLearningSystem.Application.CQRS.LearningTasks.Queries
 {
-    public class GetAllLearningTaskPaginated : IRequest<List<LearningTaskReadDTO>>
+    public class GetAllLearningTaskPaginated : IRequest<LearningTaskPaginatedResultDTO>
     {
         public PageQuery PageQuery { get; set; }
 
@@ -18,7 +18,7 @@ namespace UnifiedLearningSystem.Application.CQRS.LearningTasks.Queries
         }
     }
 
-    public class GetAllLearningTaskPaginatedyHandler : IRequestHandler<GetAllLearningTaskPaginated, List<LearningTaskReadDTO>>
+    public class GetAllLearningTaskPaginatedyHandler : IRequestHandler<GetAllLearningTaskPaginated, LearningTaskPaginatedResultDTO>
     {
         private readonly IUnitOfWork repository;
         private readonly ILearningCoreMapper<LearningTask, LearningTaskReadDTO> mapper;
@@ -31,14 +31,16 @@ namespace UnifiedLearningSystem.Application.CQRS.LearningTasks.Queries
             this.paginationService = paginationService;
         }
 
-        public async Task<List<LearningTaskReadDTO>> Handle(GetAllLearningTaskPaginated request, CancellationToken cancellationToken)
+        public async Task<LearningTaskPaginatedResultDTO> Handle(GetAllLearningTaskPaginated request, CancellationToken cancellationToken)
         {
             request.PageQuery.MaxElements = await paginationService.CountPagesAsync();
             var targetSolutions = await repository.LearningTaskRepository.GetAllAsync(request.PageQuery);
             var targetMappedSolutions = new List<LearningTaskReadDTO>();
             targetSolutions.ToList().ForEach(el => targetMappedSolutions.Add(mapper.ConvertFrom(el)));
 
-            return targetMappedSolutions;
+            var resultRequest = new LearningTaskPaginatedResultDTO(targetMappedSolutions, request.PageQuery);
+
+            return resultRequest;
         }
     }
 }

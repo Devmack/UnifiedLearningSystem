@@ -38,9 +38,10 @@ namespace UnifiedLearningSystem.API.Controllers
         [AllowAnonymous]
         [HttpGet]
         [Route("tasks/pages")]
-        public async Task<ActionResult> GetAllTaskPaginated([FromQuery] PageQuery queryPage)
+        public async Task<ActionResult<LearningTaskPaginatedResultDTO>> GetAllTaskPaginated([FromQuery] PageQuery queryPage)
         {
-            return Ok(await mediatR.Send(new GetAllLearningTaskPaginated(queryPage)));
+            var result = await mediatR.Send(new GetAllLearningTaskPaginated(queryPage));
+            return Ok(result);
         }
 
         [HttpPost]

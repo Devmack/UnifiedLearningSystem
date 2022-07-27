@@ -38,7 +38,7 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
 
         public async Task<List<LearningTask>> GetAllAsync(IPageQuery queryPage)
         {
-            var query = context.LearningTasks.Take(queryPage.MaxElements).Skip(queryPage.CurrentPage - 1 * queryPage.ElementsPerPage);
+            var query = context.LearningTasks.Skip(queryPage.CurrentPage * queryPage.ElementsPerPage).Take(queryPage.ElementsPerPage);
             return await query.ToListAsync();
 
         }
