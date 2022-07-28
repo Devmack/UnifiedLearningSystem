@@ -19,14 +19,15 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
             await context.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(LearningLesson task)
+        public async Task DeleteAsync(LearningLesson task)
         {
-            throw new NotImplementedException();
+            context.Lessons.Remove(task);
+            await context.SaveChangesAsync();
         }
 
         public async Task<ICollection<LearningLesson>> GetAllAsync()
         {
-            return await context.Lessons.ToListAsync();
+            return await context.Lessons.Include(lesson => lesson.Tasks).ToListAsync();
         }
 
         public LearningLesson GetSingle(Guid id)

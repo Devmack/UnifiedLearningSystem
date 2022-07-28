@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using UnifiedLearningSystem.Application.CQRS.Lessons.Commands;
+using UnifiedLearningSystem.Application.CQRS.Lessons.Queries;
 using UnifiedLearningSystem.Application.DTOs.Lesson;
 
 namespace UnifiedLearningSystem.API.Controllers
@@ -21,6 +22,13 @@ namespace UnifiedLearningSystem.API.Controllers
         public async Task<ActionResult> CreateNewLesson(LearningLessonCreateDTO lessonCreateDTO)
         {
             return Ok(await mediatR.Send(new CreateNewLessonCommand(lessonCreateDTO)));
+        }
+
+        [HttpGet]
+        [Route("lessons")]
+        public async Task<ActionResult> GetAllLessons()
+        {
+            return Ok(await mediatR.Send(new GetAllLessonsQuery()));
         }
 
         [HttpPut]
