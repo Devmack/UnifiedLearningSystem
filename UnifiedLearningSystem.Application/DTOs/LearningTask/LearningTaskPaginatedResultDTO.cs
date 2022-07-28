@@ -2,6 +2,6 @@
 
 namespace UnifiedLearningSystem.Application.DTOs.LearningTask
 {
-    public record LearningTaskPaginatedResultDTO (List<LearningTaskReadDTO> selectedTasks, PageQuery queryRelated);
+    public record LearningTaskPaginatedResultDTO (List<LearningTaskReadDTO> SelectedTasks, PageQuery QueryRelated);
 
 }

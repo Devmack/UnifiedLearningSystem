@@ -7,7 +7,7 @@ namespace UnifiedLearningSystem.Application.Mappers
 {
     public class LearningLessonCreateMapper : ILearningCoreMapper<LearningLessonCreateDTO, LearningLesson>
     {
-        private ILearningCoreMapper<LearningTask, LearningTaskCreateDTO> learningCoreMapper;
+        private readonly ILearningCoreMapper<LearningTask, LearningTaskCreateDTO> learningCoreMapper;
 
         public LearningLessonCreateMapper(ILearningCoreMapper<LearningTask, LearningTaskCreateDTO> learningCoreMapper)
         {

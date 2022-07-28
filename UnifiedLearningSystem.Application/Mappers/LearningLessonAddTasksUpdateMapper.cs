@@ -8,12 +8,10 @@ namespace UnifiedLearningSystem.Application.Mappers
 {
     public class LearningLessonAddTasksUpdateMapper : ILearningCoreMapper<AddTaskToLessonDTO, LearningLesson>
     {
-        private readonly ILearningCoreMapper<LearningTask, LearningTaskReadDTO> mapper;
         private readonly IUnitOfWork repository;
 
-        public LearningLessonAddTasksUpdateMapper(ILearningCoreMapper<LearningTask, LearningTaskReadDTO> mapper, IUnitOfWork repository)
+        public LearningLessonAddTasksUpdateMapper(IUnitOfWork repository)
         {
-            this.mapper = mapper;
             this.repository = repository;
         }
         public AddTaskToLessonDTO ConvertFrom(LearningLesson createDTO)

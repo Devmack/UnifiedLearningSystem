@@ -21,7 +21,6 @@ namespace UnifiedLearningSystem.Infrastructure.Security
 
         public async Task<string> GenerateTokenAsync(IdentityUser<Guid> user)
         {
-            var usrClaims = await _userManager.GetClaimsAsync(user);
             var roles = await _userManager.GetRolesAsync(user);
 
             var allClaims = new List<Claim>();

@@ -8,11 +8,11 @@ namespace UnifiedLearningSystem.Application.CQRS.Lessons.Commands
 {
     public class CreateNewLessonCommand : IRequest<bool>
     {
-        public LearningLessonCreateDTO createDTO { get; set; }
+        public LearningLessonCreateDTO CreateDTO { get; set; }
 
         public CreateNewLessonCommand(LearningLessonCreateDTO createDTO)
         {
-            this.createDTO = createDTO;
+            this.CreateDTO = createDTO;
         }
     }
 
@@ -30,7 +30,7 @@ namespace UnifiedLearningSystem.Application.CQRS.Lessons.Commands
         public async Task<bool> Handle(CreateNewLessonCommand request, CancellationToken cancellationToken)
         {
            
-            var mapped = learningCoreMapper.ConvertFrom(request.createDTO);
+            var mapped = learningCoreMapper.ConvertFrom(request.CreateDTO);
             await repository.LearningLessonRepository.AddAsync(mapped);
 
             return true;
