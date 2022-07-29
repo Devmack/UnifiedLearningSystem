@@ -1,3 +1,4 @@
+using UnifiedLearningSystem.API.Middleware;
 using UnifiedLearningSystem.Application;
 using UnifiedLearningSystem.Infrastructure;
 
@@ -36,7 +37,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseMiddleware<ExceptionCustomMiddleware>();
 app.MapControllers();
 
 app.Run();
