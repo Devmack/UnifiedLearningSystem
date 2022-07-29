@@ -29,7 +29,7 @@ namespace UnifiedLearningSystem.Infrastructure.Security
             {
                 for (int i = 0; i < roles.Count; i++)
                 {
-                    allClaims.Add(new Claim(ClaimTypes.Role, roles[i]));
+                    allClaims.Add(new Claim("role", roles[i]));
                 }
             } else
             {

@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UnifiedLearningSystem.Application.CQRS.Identity.Commands;
 using UnifiedLearningSystem.Application.CQRS.Identity.Queries;
@@ -32,7 +31,7 @@ namespace UnifiedLearningSystem.API.Controllers
             return Ok(await mediatR.Send(new CreateNewRoleCommand(roleName)));
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("user/role")]
         public async Task<ActionResult> AssignRoleToUser(AssignRoleToUserCommand command)
         {
