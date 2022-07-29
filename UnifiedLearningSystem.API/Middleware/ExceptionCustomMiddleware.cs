@@ -43,7 +43,6 @@ namespace UnifiedLearningSystem.API.Middleware
                     break;
             }
 
-            logger.LogError(e.Message);
             var result = JsonSerializer.Serialize(error);
             await context.Response.WriteAsync(result);
         }
