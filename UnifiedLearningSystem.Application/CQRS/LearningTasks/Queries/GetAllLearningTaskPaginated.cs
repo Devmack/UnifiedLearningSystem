@@ -24,6 +24,8 @@ namespace UnifiedLearningSystem.Application.CQRS.LearningTasks.Queries
         private readonly ILearningCoreMapper<LearningTask, LearningTaskReadDTO> mapper;
         private readonly IPaginationService paginationService;
 
+
+
         public GetAllLearningTaskPaginatedyHandler(IUnitOfWork repository, ILearningCoreMapper<LearningTask, LearningTaskReadDTO> mapper, IPaginationService paginationService)
         {
             this.repository = repository;

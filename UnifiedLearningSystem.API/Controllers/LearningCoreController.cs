@@ -21,6 +21,8 @@ namespace UnifiedLearningSystem.API.Controllers
             this.mediatR = mediatR;
         }
 
+        [AllowAnonymous]
+        [ResponseCache(Duration = 30, Location = ResponseCacheLocation.Any)]
         [HttpGet]
         [Route("tasks")]
         public async Task<ActionResult<List<LearningTaskCreateDTO>>> GetAllTasks()
