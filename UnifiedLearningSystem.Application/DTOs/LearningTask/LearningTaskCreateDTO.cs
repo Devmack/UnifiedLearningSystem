@@ -2,6 +2,6 @@
 
 namespace UnifiedLearningSystem.Application.DTOs.LearningTask
 {
-    public record LearningTaskCreateDTO(TaskTitle _taskTitle, TaskDescription _taskDescription);
+    public record LearningTaskCreateDTO(TaskTitle _taskTitle, TaskDescription _taskDescription, string codeStarter);
 
 }

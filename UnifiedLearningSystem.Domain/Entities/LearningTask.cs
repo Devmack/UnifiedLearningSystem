@@ -1,4 +1,5 @@
 ﻿using UnifiedLearningSystem.Domain.DomainEvents;
+using UnifiedLearningSystem.Domain.ValueObjects.Task;
 
 namespace UnifiedLearningSystem.Domain.Entities
 {
@@ -6,17 +7,19 @@ namespace UnifiedLearningSystem.Domain.Entities
     {
         public TaskTitle TaskTitle { get; private set; }
         public TaskDescription TaskDescription { get; private set; }
+        public TaskCodeStarter TaskCodeStarter { get; private set; }
 
         public LearningTask()
         {
 
         }
-        internal LearningTask(TaskTitle taskTitle, TaskDescription taskDescription)
+        internal LearningTask(TaskTitle taskTitle, TaskDescription taskDescription, TaskCodeStarter taskCodeStarter)
         {
             TaskTitle = taskTitle;
             TaskDescription = taskDescription;
 
             AddEvent(new LearningTaskCreatedEvent(this));
+            TaskCodeStarter = taskCodeStarter;
         }
 
         public void ChangeTitle(TaskTitle newTitle)
