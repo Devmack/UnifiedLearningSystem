@@ -36,7 +36,15 @@ namespace UnifiedLearningSystem.API.Controllers
         {
             return Ok(await mediatR.Send(new GetSingleTaskQuery(id)));
         }
-            
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("task/{id}/stats")]
+        public async Task<ActionResult<LearningTaskCreateDTO>> GetSingleTaskStats(Guid id)
+        {
+            return Ok(await mediatR.Send(new GetSingleLearningTaskStatsQuery(id)));
+        }
+
         [AllowAnonymous]
         [HttpGet]
         [Route("tasks/pages")]

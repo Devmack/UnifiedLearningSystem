@@ -8,13 +8,17 @@ using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using System.Text;
 using UnifiedLearningSystem.Application.Shared.Identity;
+using UnifiedLearningSystem.Application.Shared.Media;
 using UnifiedLearningSystem.Application.Shared.Pagination;
 using UnifiedLearningSystem.Application.Shared.Repository;
 using UnifiedLearningSystem.Application.Shared.Security;
+using UnifiedLearningSystem.Application.Shared.Statistics;
 using UnifiedLearningSystem.Infrastructure.Identity;
+using UnifiedLearningSystem.Infrastructure.Media;
 using UnifiedLearningSystem.Infrastructure.Pagination;
 using UnifiedLearningSystem.Infrastructure.Persistence;
 using UnifiedLearningSystem.Infrastructure.Security;
+using UnifiedLearningSystem.Infrastructure.Stats;
 
 namespace UnifiedLearningSystem.Infrastructure
 {
@@ -93,6 +97,8 @@ namespace UnifiedLearningSystem.Infrastructure
             services.AddTransient<IIdentityService, LearningIdentityService>();
             services.AddTransient<ITokenService, TokenService>();
             services.AddTransient<IPaginationService, PaginationService>();
+            services.AddTransient<IMediaService, MediaService>();
+            services.AddTransient<IStatsService, StatsService>();
         }
     }
 }
