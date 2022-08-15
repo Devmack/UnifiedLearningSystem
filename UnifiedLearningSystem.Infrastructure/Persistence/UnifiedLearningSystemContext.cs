@@ -24,6 +24,7 @@ namespace UnifiedLearningSystem.Infrastructure.Persistence
             modelBuilder.Entity<LearningTask>().OwnsOne(task => task.TaskTitle);
             modelBuilder.Entity<LearningTask>().OwnsOne(task => task.TaskDescription);
             modelBuilder.Entity<LearningTask>().OwnsOne(task => task.TaskCodeStarter);
+            modelBuilder.Entity<LearningTask>().OwnsOne(task => task.TaskImageHeader);
 
             modelBuilder.Entity<TaskUser>().HasKey(taskUser => taskUser.AggregateID);
             modelBuilder.Entity<TaskUser>().OwnsOne(taskUser => taskUser.RepositoriumLink);

@@ -11,6 +11,7 @@ namespace UnifiedLearningSystem.Application.CQRS.LearningTasks.Commands
         public string Title { get; set; }
         public string Description { get; set; }
         public string CodeStarter { get; set; }
+        public string ImageHeader { get; set; }
     }
 
 
@@ -26,7 +27,7 @@ namespace UnifiedLearningSystem.Application.CQRS.LearningTasks.Commands
         }
         public async Task<bool> Handle(CreateNewTaskCommand request, CancellationToken cancellationToken)
         {
-            var newTask = new LearningTaskCreateDTO(request.Title, request.Description, request.CodeStarter);
+            var newTask = new LearningTaskCreateDTO(request.Title, request.Description, request.CodeStarter, request.ImageHeader);
             var mapped = learningCoreMapper.ConvertFrom(newTask);
 
 

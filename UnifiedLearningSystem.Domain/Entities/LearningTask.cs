@@ -8,18 +8,22 @@ namespace UnifiedLearningSystem.Domain.Entities
         public TaskTitle TaskTitle { get; private set; }
         public TaskDescription TaskDescription { get; private set; }
         public TaskCodeStarter TaskCodeStarter { get; private set; }
+        public TaskImageHeader TaskImageHeader { get; private set; }
 
         public LearningTask()
         {
 
         }
-        internal LearningTask(TaskTitle taskTitle, TaskDescription taskDescription, TaskCodeStarter taskCodeStarter)
+        internal LearningTask(TaskTitle taskTitle, TaskDescription taskDescription, TaskCodeStarter taskCodeStarter, TaskImageHeader taskImageHeader)
         {
             TaskTitle = taskTitle;
             TaskDescription = taskDescription;
 
-            AddEvent(new LearningTaskCreatedEvent(this));
             TaskCodeStarter = taskCodeStarter;
+            TaskImageHeader = taskImageHeader;
+
+            AddEvent(new LearningTaskCreatedEvent(this));
+            
         }
 
         public void ChangeTitle(TaskTitle newTitle)

@@ -31,6 +31,7 @@ if (app.Environment.IsDevelopment())
 }
 app.UseCors("AllowAll");
 app.UseResponseCaching();
+app.UseStaticFiles();
 app.UseHttpsRedirection();
 
 
